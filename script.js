@@ -1,16 +1,10 @@
-//gem text fra input
-//lav blomst
-//add event listner
-//blomst logic
-//lav kalender
-//knap funktioner
-
-//Tilføj til kalenderen
 let inputText;
 let blomstImg = document.querySelector("#blomst");
 let blomstSize, skal;
 
+//Tilføj til kalenderen
 function tilføj(inputText = "Ingen text"){
+    //Hook til input field
     inputText = document.querySelector("#text").value;
     // Make li-element
     let listEl = document.createElement("li");
@@ -20,7 +14,7 @@ function tilføj(inputText = "Ingen text"){
     kalender.append(listEl);
 };
 
-// Alt om blomst
+//Laver blomst med random antal blade
 function init(random = Math.random()){
     const minSize = 6
     const maxSize = 6;
@@ -32,6 +26,7 @@ init();
 
 blomstImg.addEventListener("click", blomstClick);
 
+//Nedtælling når blomsten klikkes
 function blomstCountDown(){
     if(blomstSize > 1){
         skal = !skal;
@@ -47,14 +42,21 @@ function blomstCountDown(){
         blomstSize --;
         blomstImg.src = `assets/${blomstSize}.png`;
     };
+    //Skal, skal ikke tekst på blomst
+    if(skal){
+        document.querySelector("#skal").innerText = "Skal";
+    } else {
+        document.querySelector("#skal").innerText = "Skal ikke";
+    };
 };
+
 
 function blomstClick(e){
     inputText = document.querySelector("#text");
     
+    //check if input has been filled
     if(inputText.value.length > 0){
         blomstCountDown();
-        if(skal){document.querySelector("#skal").innerText = "Skal";} else {document.querySelector("#skal").innerText = "Skal ikke";};
     } else{
         alert("Udfyld teksfeldt");
     }
