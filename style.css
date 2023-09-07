@@ -46,12 +46,21 @@ html,body{
     height: 450px;
     position: relative;
 }
+#visuals > h1 {
+    position: absolute;
+    left: 50%;
+    top: 2.6em;
+    font-size: 5em;
+    text-align: center;
+    transform: translate(-50%);
+}
 #blomst{
     width: auto;
     height: 90%;
     position: absolute;
     left: 50%;
-    transform: translate(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .knapper{
     width: 100%;
