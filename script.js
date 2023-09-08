@@ -66,6 +66,7 @@ function blomstClick(e){
 //Reset
 function reset(){
     inputText = document.querySelector("#text").value = "";
-    init();
     document.querySelector("#skal").innerText = "";
-}
+    init();
+    console.log("Reset");
+};
